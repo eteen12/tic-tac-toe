@@ -13,6 +13,9 @@
     align-items: center;
 }
 .gameWrapper{
+    display: none;
+}
+.gameWrapper{
     position: relative;
     display: flex;
     justify-content:center;

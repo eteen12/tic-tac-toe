@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let board = ['', '', '', '', '', '', '', '', ''];
 
-    const elements =(()=>{
+    function elements(){
 
         let gameWrapper = document.createElement('div');
         gameWrapper.classList.add('gameWrapper');
@@ -22,9 +22,15 @@ document.addEventListener("DOMContentLoaded",function(){
             gameBoard.appendChild(cell);
         }
 
-        gameHtml.style.display= "none";
+       
 
-    })();
+    };
+
+    let startBtn = document.querySelector('.start-btn');
+    startBtn.addEventListener("click",function(){
+        elements();
+        document.querySelector('.gameWrapper').style.display='flex';
+    })
    
 
 
