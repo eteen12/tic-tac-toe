@@ -1,12 +1,32 @@
-*{
-    margin:0;
-    padding:0;
+.title{
+    display:flex;
+    align-content: center;
+    justify-content: center;
 }
-.main-h1, .controls{
+.start-btn{
+    width:20%;
+    height:10%;
+}
+.btn-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.controls{
-    margin-top:5%;
+.gameWrapper{
+    position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:10%;
+   
+}
+.gameBoard{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+}
+.cell {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
 }

@@ -1,25 +1,31 @@
 document.addEventListener("DOMContentLoaded",function(){
 
-   const startBtn = document.querySelector('#start-button');
-   startBtn,this.addEventListener("click",function(){
-    
-    gameBoard();
-   });
+    let board = ['', '', '', '', '', '', '', '', ''];
 
-   const gameBoard = (() =>{
+    const elements =(()=>{
 
-    let display = document.querySelector("#message-display");
+        let gameWrapper = document.createElement('div');
+        gameWrapper.classList.add('gameWrapper');
 
-    let gameBoardWrapper = document.createElement("div");
-    gameBoardWrapper.classList.add("boardWrapper");
+        let gameBoard = document.createElement('div');
+        gameBoard.classList.add('gameBoard');
 
-    let boxes = document.createElement("div");
-    boxes.classList.add("boxes");
+        let gameHtml = document.querySelector('.gameBoard-HTML');
 
-    display.appendChild(gameBoardWrapper);
+        gameHtml.appendChild(gameWrapper);
+        gameWrapper.appendChild(gameBoard);
 
+        for(let i = 0; i < board.length; i++){
+            let cell = document.createElement('div');
+            cell.classList.add('cell');
+            board[i]=i;
+            gameBoard.appendChild(cell);
+        }
 
-   })
+        gameHtml.style.display= "none";
+
+    })();
+   
 
 
 
