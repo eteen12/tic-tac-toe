@@ -1,50 +1,28 @@
 document.addEventListener("DOMContentLoaded",function(){
 
-    const Gameboard = (()=>{
-        let gameboard = ["","","","","","","","",""]
+   const startBtn = document.querySelector('#start-button');
+   startBtn,this.addEventListener("click",function(){
+    
+    gameBoard();
+   });
 
-        function render() {
-            let boardHTML = "";
-            gameboard.forEach((square,index) =>{
-                boardHTML += `<div class ="square" id="square-${index}">${index}</div>`
+   const gameBoard = (() =>{
 
-            })
-            document.querySelector("#gameboard").innerHTML = boardHTML;
-        }
-    })();
+    let display = document.querySelector("#message-display");
 
-    const startBtn = document.querySelector("#start-button");
-    startBtn.addEventListener("click", ()=>{
-        Game.start();
+    let gameBoardWrapper = document.createElement("div");
+    gameBoardWrapper.classList.add("boardWrapper");
 
-        return {
-            render,
-        }
-    })
+    let boxes = document.createElement("div");
+    boxes.classList.add("boxes");
 
-    const createPlayer = (name,mark) => {
-        return
-    }
+    display.appendChild(gameBoardWrapper);
 
-    const Game =(() =>{
 
-        let players = [];
-        let currentPlayerIndex;
-        let gameOver;
+   })
 
-        const start = () => {
-            players = [
-                createPlayer(document.querySelector("#player1").value,"X"),
-                createPlayer(document.querySelector("#player2").value,"0")
-            ];//now we are going to create a factory
-            currentPlayerIndex = 0;
-            gameOver = false;
-            Gameboard.render();
-        }
-        return{
-            start,
-        }
-    })();
 
+
+   
    
 });
