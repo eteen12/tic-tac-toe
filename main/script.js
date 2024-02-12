@@ -80,6 +80,22 @@ document.addEventListener("DOMContentLoaded",function(){
         }
        
     })
+    function reset(){
+        let resetBtn = document.querySelector('.reset');
+
+        resetBtn.addEventListener("click",function(){
+            resetBoard();
+        })
+    }
+    document.addEventListener("click",reset)
+    function resetBoard(){
+        currentPlayer = 'X';
+        board = ['', '', '', '', '', '', '', '', ''];
+        const cells = document.getElementsByClassName('cell');
+        for(let cell of cells){
+            cell.innerText = '';
+        }
+    }
    
 
 
