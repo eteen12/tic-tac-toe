@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let board = ['', '', '', '', '', '', '', '', ''];
     let gameStarted = false;
+    let currentPlayer = 'X';
 
     function elements(){
 
@@ -27,17 +28,23 @@ document.addEventListener("DOMContentLoaded",function(){
 
     };
     function player1(event){
+        
+
         let clickedCellIndex = event.target.getAttribute('data-index');
-        if(board[clickedCellIndex] === '' && gameStarted){
+        if(board[clickedCellIndex] === '' && gameStarted && currentPlayer){
             board[clickedCellIndex]='X';
             let xElement = document.createElement('div');
             xElement.textContent = 'X';
             xElement.classList.add('playerX');
             event.target.appendChild(xElement);
+
+            currentPlayer='O';
+            computerMove();
         }
-        computerMove()
     }
+
     function computerMove(){
+        
         let emptyCells = board.reduce((acc,value,index) =>{
             if(value === ''){
                 acc.push(index);
@@ -55,6 +62,8 @@ document.addEventListener("DOMContentLoaded",function(){
             oElement.classList.add('computer');
 
             document.querySelector(`[data-index="${computerIndex}"]`).appendChild(oElement);
+
+            currentPlayer = 'X';
         }
     }
     
@@ -66,6 +75,8 @@ document.addEventListener("DOMContentLoaded",function(){
             elements();
             document.querySelector('.gameWrapper').style.display='flex';
             gameStarted = true;
+
+           
         }
        
     })
