@@ -35,9 +35,27 @@ document.addEventListener("DOMContentLoaded",function(){
             xElement.classList.add('playerX');
             event.target.appendChild(xElement);
         }
+        computerMove()
     }
     function computerMove(){
-        
+        let emptyCells = board.reduce((acc,value,index) =>{
+            if(value === ''){
+                acc.push(index);
+            }
+            return acc;
+        },[])
+
+        if(emptyCells.length >0){
+            let randomIndex =Math.floor(Math.random()*emptyCells.length);
+            let computerIndex = emptyCells[randomIndex];
+
+            board[computerIndex] = '0';
+            let oElement = document.createElement('div');
+            oElement.textContent = '0';
+            oElement.classList.add('computer');
+
+            document.querySelector(`[data-index="${computerIndex}"]`).appendChild(oElement);
+        }
     }
     
     document.addEventListener('click', player1);
