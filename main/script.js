@@ -30,7 +30,10 @@ document.addEventListener("DOMContentLoaded",function(){
         let clickedCellIndex = event.target.getAttribute('data-index');
         if(board[clickedCellIndex] === '' && gameStarted){
             board[clickedCellIndex]='X';
-            event.target.textContent = 'X';
+            let xElement = document.createElement('div');
+            xElement.textContent = 'X';
+            xElement.classList.add('playerX');
+            event.target.appendChild(xElement);
         }
     }
     document.addEventListener('click', player1);
