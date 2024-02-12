@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
             currentPlayer='O';
             computerMove();
+            checkWin('X');
         }
     }
 
@@ -64,8 +65,34 @@ document.addEventListener("DOMContentLoaded",function(){
             document.querySelector(`[data-index="${computerIndex}"]`).appendChild(oElement);
 
             currentPlayer = 'X';
+            checkWin('0');
         }
     }
+    function checkWin(player) {
+        const winCombos = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+        const gameStatus = document.querySelector('.h2-status');
+        
+
+        const isWinner = winCombos.some(combo => combo.every(index => board[index] === player));
+
+        if(isWinner){
+            gameStatus.textContent = `Player ${player} wins!`
+        }
+        else if (board.every(cell => cell !== '')) {
+            gameStatus.textContent = 'It\'s a tie!';
+        }
+    }
+    
+   
     
     document.addEventListener('click', player1);
 
@@ -82,6 +109,11 @@ document.addEventListener("DOMContentLoaded",function(){
     })
     function reset(){
         let resetBtn = document.querySelector('.reset');
+        let resetBtnWrapper = document.querySelector('.reset-wrapper');
+
+        resetBtnWrapper.style.display='flex';
+        resetBtnWrapper.style.justifyContent = 'center';
+        resetBtnWrapper.style.alignItems = 'center';
 
         resetBtn.addEventListener("click",function(){
             resetBoard();
@@ -95,6 +127,8 @@ document.addEventListener("DOMContentLoaded",function(){
         for(let cell of cells){
             cell.innerText = '';
         }
+        const gameStatus = document.querySelector('.h2-status');
+        gameStatus.textContent = '';
     }
    
 

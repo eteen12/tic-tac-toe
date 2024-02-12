@@ -41,3 +41,13 @@
 .computer{
     color:red;
 }
+.reset-wrapper{
+    display:none;
+    margin-top:5%;
+}
+.h2-status{
+    font-size:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
