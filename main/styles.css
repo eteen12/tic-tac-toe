@@ -34,5 +34,7 @@
     border: 1px solid black;
 }
 .playerX{
-    color:red;
+    text-align: center;
+    position: relative;
+    margin-top:40%;
 }

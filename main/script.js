@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded",function(){
             event.target.appendChild(xElement);
         }
     }
+    function computerMove(){
+        
+    }
+    
     document.addEventListener('click', player1);
 
     let startBtn = document.querySelector('.start-btn');
