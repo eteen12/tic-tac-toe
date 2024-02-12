@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded",function(){
 
     let board = ['', '', '', '', '', '', '', '', ''];
+    let gameStarted = false;
 
     function elements(){
 
@@ -28,8 +29,12 @@ document.addEventListener("DOMContentLoaded",function(){
 
     let startBtn = document.querySelector('.start-btn');
     startBtn.addEventListener("click",function(){
-        elements();
-        document.querySelector('.gameWrapper').style.display='flex';
+        if(!gameStarted){
+            elements();
+            document.querySelector('.gameWrapper').style.display='flex';
+            gameStarted = true;
+        }
+       
     })
    
 
